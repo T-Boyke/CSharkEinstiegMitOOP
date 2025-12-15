@@ -1,0 +1,29 @@
+## Visual Studio ##
+# Build-Ordner ignorieren (enthalten kompilierte .exe und temporäre Dateien)
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio Cache und Benutzereinstellungen ignorieren
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Test-Ergebnisse ignorieren
+TestResults/
+
+## Windows & System ##
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## Mac (falls jemand im Team Mac nutzt) ##
+.DS_Store
+
+## Visual Studio Code (falls Ordner vorhanden) ##
+.vscode/
+
+## Crash Dumps ##
+*.dmp
