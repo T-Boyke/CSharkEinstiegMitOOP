@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     class Tank {
         - bezeichner:string
@@ -7,3 +8,4 @@ classDiagram
         +getFuellstand() double
         +setFuellstand(neuerStand:double) void
     }
+```
