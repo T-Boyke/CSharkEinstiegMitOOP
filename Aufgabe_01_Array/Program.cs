@@ -1,96 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ArrayUebungen
+namespace Aufgabe_01_Array
 {
     /// <summary>
-    /// Hauptklasse der Anwendung. Beinhaltet ein Auswahlmenü für den Benutzer.
+    /// Hauptklasse der Anwendung für Aufgabe 01 (Arrays).
+    /// Beinhaltet ein Untermenü für die verschiedenen Teilaufgaben.
     /// </summary>
-    internal class Program
+    public class App
     {
-        public Program()
+        /// <summary>
+        /// Standardkonstruktor (nicht benötigt, da statische Methoden).
+        /// </summary>
+        public App()
         {
         }
 
         /// <summary>
-        /// Einstiegspunkt der Anwendung (Entry Point).
-        /// Stellt das Benutzermenü bereit und steuert den Programmfluss.
+        /// Einstiegspunkt für den Controller (Entry Point).
+        /// Startet die Schleife des Untermenüs.
         /// </summary>
-        /// <param name="args">Kommandozeilenargumente (hier nicht verwendet).</param>
-        static void Main(string[] args)
+        public static void Run()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            // --- Benutzermenü Ausgabe ---
-            Console.WriteLine("Welche Aufgabe soll ausgeführt werden?");
-            Console.WriteLine("1 - Statistik (Aufgabe 1)");
-            Console.WriteLine("2 - Lottozahlen (Aufgabe 2)");
-            Console.WriteLine("3 - Binärzahlen 1 (Aufgabe 3)");
-            Console.WriteLine("4 - Mittelwert ohne Min und Max (Aufgabe 4)");
-            Console.WriteLine("5 - Aufgabe 1 mit Lists");
-            Console.WriteLine("6 - Aufgabe 2 ");
-            Console.WriteLine("7 - Aufgabe 3 ");
-            Console.WriteLine("8 - Aufgabe 4 ");
-            Console.Write("Auswahl: ");
+            bool running = true;
+            while (running)
+            {
+                Console.OutputEncoding = System.Text.Encoding.UTF8;
+                Console.Clear(); // Screen clear for cleanliness
+                
+                // --- Benutzermenü Ausgabe ---
+                Console.WriteLine("=== Aufgabe 01: Arrays & Listen ===");
+                Console.WriteLine("1 - Statistik (Array)");
+                Console.WriteLine("2 - Lottozahlen (Array)");
+                Console.WriteLine("3 - Binärzahlen (Array)");
+                Console.WriteLine("4 - Mittelwert bereinigt (Array)");
+                Console.WriteLine("5 - Statistik (List)");
+                Console.WriteLine("6 - Lottozahlen (List)");
+                Console.WriteLine("7 - Binärzahlen (List)");
+                Console.WriteLine("8 - Mittelwert bereinigt (List)");
+                Console.WriteLine("0 - ZURÜCK zum Hauptmenü");
+                Console.Write("Auswahl: ");
 
-            // Einlesen der Benutzereingabe
-            string auswahl = Console.ReadLine();
+                // Einlesen der Benutzereingabe
+                string auswahl = Console.ReadLine() ?? ""; // Null-Coalescing für Sicherheit
 
-            Console.WriteLine("\n---------------------------------\n");
+                Console.WriteLine("\n---------------------------------\n");
 
-            // --- Steuerung der Programmlogik ---
-            // Verzweigung basierend auf der User-Eingabe
-            if (auswahl == "1")
-            {
-                RunStatistik();
-            }
-            else if (auswahl == "2")
-            {
-                RunLotto();
-            }
-            else if (auswahl == "3")
-            {
-                RunBinary();
-            }
-            else if (auswahl == "4")
-            {
-                RunMittel();
-            }
-            else if (auswahl == "5")
-            {
-                // Platzhalter für Aufgabe 5 mit Lists
-                RunStatistikLists();
-            }
-            else if (auswahl == "6")
-            {
-                // Platzhalter für Aufgabe 6
-                RunLottoLists();
-            }
-            else if (auswahl == "7")
-            {
-                // Platzhalter für Aufgabe 7
-                RunBinaryBinaryArray();
-            }
-            else if (auswahl == "8")
-            {
-                // Platzhalter für Aufgabe 8
-                RunMittelLists();
-            }
-            else if (auswahl == "42")
-            {
-                // Easter Egg
-                Console.WriteLine("Macht's gut und danke für den vielen Fisch. 🐟🐠");
-            }
-            else
-            {
-                // Fehlerfall: Ungültige Eingabe abfangen
-                Console.WriteLine("Ungültige Auswahl.");
-            }
+                switch (auswahl)
+                {
+                    case "1": RunStatistik(); break;
+                    case "2": RunLotto(); break;
+                    case "3": RunBinary(); break;
+                    case "4": RunMittel(); break;
+                    case "5": RunStatistikLists(); break;
+                    case "6": RunLottoLists(); break;
+                    case "7": RunBinaryBinaryArray(); break;
+                    case "8": RunMittelLists(); break;
+                    case "0": running = false; break;
+                    case "42": Console.WriteLine("Macht's gut und danke für den vielen Fisch. 🐟🐠"); break;
+                    default: Console.WriteLine("Ungültige Auswahl."); break;
+                }
 
-            // Programmende verzögern, damit das Konsolenfenster offen bleibt
-            Console.WriteLine("\n---------------------------------");
-            Console.WriteLine("Drücke eine Taste zum Beenden...");
-            Console.ReadKey();
+                if (running)
+                {
+                    Console.WriteLine("\n---------------------------------");
+                    Console.WriteLine("Beliebige Taste drücken...");
+                    Console.ReadKey();
+                }
+            }
         }
+        
+        // Remove old Main signature if it clashes, or just replace it entirely.
+        // The detailed individual methods follow below.
+        
+        /* The original code had a specific Main structure, which I am replacing with the loop structure above. */
+
+        {
+        /* End of replaced Main logic */
 
         /// <summary>
         /// RunStatistik() Aufgabe 1: Erstellt ein Array mit Zufallszahlen und ermittelt statistische Werte (Minimum, Maximum, Summe, Durchschnitt).
