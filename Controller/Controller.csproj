@@ -1,5 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aufgabe_01_Array\Aufgabe_01_Array.csproj" />
+    <ProjectReference Include="..\Aufgabe_02_TV\Aufgabe_02_TV.csproj" />
+    <ProjectReference Include="..\Aufgabe_03_Konstruktoren\Aufgabe_03_Konstruktoren.csproj" />
+    <ProjectReference Include="..\Aufgabe_04_Static_Member\Aufgabe_04_Static_Member.csproj" />
+    <ProjectReference Include="..\Aufgabe_06_Gesamt\Aufgabe_06_Gesamt.csproj" />
+    <ProjectReference Include="..\Aufgabe_08_Beziehungen_Part1\Aufgabe_08_Beziehungen_Part1.csproj" />
+    <ProjectReference Include="..\Aufgabe_09_Beziehungen_Part2\Aufgabe_09_Beziehungen_Part2.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>

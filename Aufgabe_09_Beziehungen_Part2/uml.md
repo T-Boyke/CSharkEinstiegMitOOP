@@ -1,22 +1,23 @@
+# Klassendiagramm - Aufgabe 09 (StudentenDatenbank)
+
 ```mermaid
 classDiagram
     class Student {
         +int MatrikelNr
         +string Name
         +string Fachrichtung
-        +Student(int matrikelNr, string name, string fachrichtung)
+        +Student(int mNr, string name, string fach)
         +PrintMe() void
     }
 
     class Datenbank {
         -Student[] _studenten
         +Datenbank(int kapazitaet)
-        +AddStudent(Student student) bool
-        +RemoveStudent(Student student) bool
+        +AddStudent(Student s) bool
+        +RemoveStudent(Student s) bool
         +CountStudents() int
         +PrintMe() void
     }
 
-    %% Beziehung: Die Datenbank "besitzt" oder "enthält" Studenten
-    Datenbank "1" --> "0..*" Student : enthält
+    Datenbank "1" o-- "*" Student : verwaltet
 ```

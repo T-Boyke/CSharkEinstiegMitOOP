@@ -1,11 +1,16 @@
 using System;
 
-namespace StudentenDatenbank
+namespace Aufgabe_09_Beziehungen_Part2
 {
-    class Program
+    /// <summary>
+    /// Steuerungsklasse für Aufgabe 09 (StudentenDatenbank).
+    /// </summary>
+    public class App
     {
-        static void Main(string[] args)
+        public static void Run()
         {
+            Console.Clear();
+            Console.WriteLine("=== Aufgabe 09: StudentenDatenbank (Beziehungen II) ===");
             // 1. Datenbank für 3 Studenten anlegen
             Datenbank db = new Datenbank(3);
 
@@ -34,6 +39,7 @@ namespace StudentenDatenbank
             // 6. Erneute Ausgabe (Lücke im Array sollte ignoriert werden)
             db.PrintMe();
 
+            Console.WriteLine("\nDrücke eine Taste...");
             Console.ReadKey();
         }
     }

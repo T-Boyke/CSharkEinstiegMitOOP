@@ -1,20 +1,24 @@
+# Klassendiagramm - Aufgabe 08 (Parkplatz)
+
 ```mermaid
 classDiagram
-    class Parkplatz {
-        -List~Parkbox~ boxen
-        +Parkplatz(anzahl: int)
-    }
-    class Parkbox {
-        -Auto geparktesAuto
-        +IstFrei() bool
-        +Einparken(auto: Auto) void
-        +Ausparken() Auto
-    }
     class Auto {
-        -string kennzeichen
-        +Auto(kennzeichen: string)
+        +string Kennzeichen
+        +Auto(string kennzeichen)
     }
 
-    Parkplatz *-- "1..*" Parkbox : besteht aus
-    Parkbox o-- "0..1" Auto : belegt von
+    class Parkbox {
+        +Auto GeparktesAuto
+        +IstFrei() bool
+        +Einparken(Auto auto) void
+        +Ausparken() Auto
+    }
+
+    class Parkplatz {
+        +List~Parkbox~ Boxen
+        +Parkplatz(int anzahlBoxen)
+    }
+
+    Parkplatz "1" *-- "*" Parkbox : enthält
+    Parkbox "1" o-- "0..1" Auto : parkt
 ```

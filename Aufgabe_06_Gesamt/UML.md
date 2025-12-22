@@ -1,22 +1,26 @@
+# Klassendiagramm - Aufgabe 06 (MyDate)
+
 ```mermaid
----
-config:
-  theme: mc
----
 classDiagram
     class MyDate {
-        - monthLengths:int[]$
-        + Day:int
-        + Month:int
-        + Year:int
-        + MyDate(day: int, month: int, year: int)
-        + MyDate(day: int, year: int)
-        + GetMonthLength(month: int, year: int) int$
-        + IsLeapYear(year: int) bool$
-        + Equals(date: MyDate) bool
-        + IsSameDay(date: MyDate) bool
-        + ToString() string
-        + Tomorrow() MyDate
-        + Yesterday() MyDate
+        -int[] monthLengths$
+        +int Day
+        +int Month
+        +int Year
+
+        +MyDate(int day, int month, int year)
+        +MyDate(int day, int year)
+        
+        -SetDefaultDate() void
+        -IsValidDate(int day, int month, int year) bool
+        
+        +GetMonthLength(int month, int year)$ int
+        +IsLeapYear(int year)$ bool
+        
+        +Equals(MyDate date) bool
+        +IsSameDay(MyDate date) bool
+        +ToString() string
+        +Tomorrow() MyDate
+        +Yesterday() MyDate
     }
-```    
+```
